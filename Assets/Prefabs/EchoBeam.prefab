@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8555621711394746193}
   - component: {fileID: 8555621711394746192}
   - component: {fileID: 8555621711394746207}
+  - component: {fileID: 5598819881535463830}
   m_Layer: 0
   m_Name: EchoBeam
   m_TagString: Untagged
@@ -153,3 +154,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5598819881535463830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8555621711394746206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ade9e2d44fac54c848ff8fca954ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  echoBeamSpeed: 1
