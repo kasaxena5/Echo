@@ -4,15 +4,60 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Spawner Transforms")]
+    [SerializeField] Transform rockSpawner;
+    [SerializeField] RockEnemy rockPrefab;
+    [SerializeField] Transform batSpawner;
+    [SerializeField] BatEnemy batPrefab;
+
+    [Header("Rock Configs")]
+    [SerializeField] float maxRockSize;
+    [SerializeField] float minRockSize;
+    [SerializeField] float maxRockInitialSpeed;
+    [SerializeField] float minRockInitialSpeed;
+    [SerializeField] float minRockSpawnWaitTime;
+    [SerializeField] float maxRockSpawnWaitTime;
+
+    [Header("Bat Configs")]
+    [SerializeField] float maxBatInitialSpeed;
+    [SerializeField] float minBatInitialSpeed;
+    [SerializeField] float minBatSpawnWaitTime;
+    [SerializeField] float maxBatSpawnWaitTime;
+    [SerializeField] Transform batTarget;
+
+
     void Start()
     {
-        
+        StartCoroutine(BatSpawner());
+        //StartCoroutine(RockSpawner());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator RockSpawner()
     {
-        
+        while (true)
+        {
+            float spawnWaitTime = Random.Range(minRockSpawnWaitTime, maxRockSpawnWaitTime);
+            
+            RockEnemy rock = Instantiate(rockPrefab, rockSpawner.position + new Vector3(Random.Range(-5, 5), 0, 0), Quaternion.identity);
+            rock.Initialize(Random.Range(minRockInitialSpeed, maxRockInitialSpeed), Random.Range(minRockSize, maxRockSize));
+
+            yield return new WaitForSeconds(spawnWaitTime);
+        }
+    }
+
+    IEnumerator BatSpawner()
+    {
+        while (true)
+        {
+            float spawnWaitTime = Random.Range(minBatSpawnWaitTime, maxBatSpawnWaitTime);
+
+            BatEnemy bat = Instantiate(batPrefab, batSpawner.position + new Vector3(Random.Range(-5, 5), 0, 0), Quaternion.identity);
+
+            float speed = Random.Range(minRockInitialSpeed, maxRockInitialSpeed);
+            Vector2 direction = Random.insideUnitCircle;
+            bat.Initialize(direction, speed, batTarget);
+
+            yield return new WaitForSeconds(spawnWaitTime);
+        }
     }
 }
