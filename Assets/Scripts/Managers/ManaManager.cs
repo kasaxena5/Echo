@@ -27,7 +27,7 @@ public class ManaManager : MonoBehaviour
 
     IEnumerator IncreaseMana()
     {
-        while (true)
+        while (GameManager.Instance.GamePlaying)
         {
             yield return new WaitForSeconds(manaRefillTime);
             mana.value += manaRefillRate;

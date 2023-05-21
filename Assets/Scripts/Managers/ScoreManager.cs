@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
 
     IEnumerator IncrementScore()
     {
-        while(true)
+        while(GameManager.Instance.GamePlaying)
         {
             yield return new WaitForSeconds(scoreWaitTime);
             score.value += 1;

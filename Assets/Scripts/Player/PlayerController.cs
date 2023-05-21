@@ -53,6 +53,12 @@ public class PlayerController : MonoBehaviour
     public void InflictDamage(float damage)
     {
         health.value = Mathf.Max(health.value - damage, 0);
+        if(health.value <= 0)
+        {
+            SceneLoader.Instance.currentScene = "GameOverMenuScene";
+            GameManager.Instance.GamePlaying = false;
+            SceneLoader.Instance.StartScene();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

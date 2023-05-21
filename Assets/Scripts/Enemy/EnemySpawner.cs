@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator RockSpawner()
     {
-        while (true)
+        while (GameManager.Instance.GamePlaying)
         {
             float spawnWaitTime = Random.Range(minRockSpawnWaitTime, maxRockSpawnWaitTime);
             
@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator BatSpawner()
     {
-        while (true)
+        while (GameManager.Instance.GamePlaying)
         {
             float spawnWaitTime = Random.Range(minBatSpawnWaitTime, maxBatSpawnWaitTime);
 
