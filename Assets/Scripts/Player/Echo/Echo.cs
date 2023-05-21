@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Echo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float speed;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(speed * Time.deltaTime * Vector3.right);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
     }
 }

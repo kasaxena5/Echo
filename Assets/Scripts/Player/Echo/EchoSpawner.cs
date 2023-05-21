@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EchoSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Prefabs")]
+    [SerializeField] Transform target;
+    [SerializeField] Echo echoPrefab;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            Instantiate(echoPrefab, transform.position, Quaternion.identity);
+        }
         
     }
 }

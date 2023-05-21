@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(BatSpawner());
-        //StartCoroutine(RockSpawner());
+        StartCoroutine(RockSpawner());
     }
 
     IEnumerator RockSpawner()

@@ -25,7 +25,7 @@ public class MoveState : IState
             controller.rb.AddForce(new Vector2(0f, controller.jumpForce), ForceMode2D.Impulse);
         }
 
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.K))
         {
             controller.ChangeState(controller.echoBeamState);
         }
