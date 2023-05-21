@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] FloatReference health;
-    
     Slider healthBar;
 
     void Start()
@@ -21,4 +20,5 @@ public class HealthManager : MonoBehaviour
     {
         healthBar.value = health.value;
     }
+
 }

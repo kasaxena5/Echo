@@ -6,6 +6,8 @@ public class EchoBeamSpawner : MonoBehaviour
 {
     [Header("Prefabs")]
     [SerializeField] EchoBeam echoBeamPrefab;
+    [SerializeField] FloatReference mana;
+    [SerializeField] float manaUsed;
 
     [Header("Player Configs")]
     [SerializeField] private float duration;
@@ -18,8 +20,15 @@ public class EchoBeamSpawner : MonoBehaviour
     public void InstantiateBeam()
     {
         spawnCompleted = false;
-        echoBeam =  Instantiate(echoBeamPrefab, transform.position, Quaternion.identity);
-        StartCoroutine(GrowEchoBeam(targetLength));
+        if (mana.value >= manaUsed)
+        {
+            mana.value -= manaUsed;
+            echoBeam = Instantiate(echoBeamPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(GrowEchoBeam(targetLength));
+        } else
+        {
+            spawnCompleted = true;
+        }
     }
 
 
