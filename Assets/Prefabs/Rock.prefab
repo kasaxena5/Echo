@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405426ae1f4db564088a7729b0f88d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodePrefab: {fileID: 1724082903374758, guid: 92c22b881301b78498f3eedd1e0c56d6, type: 3}
   damage: 0
 --- !u!50 &5616813259938623003
 Rigidbody2D:

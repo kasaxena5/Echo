@@ -9,9 +9,6 @@ public class BatEnemy : Enemy
     [SerializeField] float speed;
     [SerializeField] float damage;
 
-    [Header("Prefabs")]
-    [SerializeField] ParticleSystem explodePrefab;
-
     Transform target;
     Rigidbody2D rb;
 
@@ -32,12 +29,5 @@ public class BatEnemy : Enemy
         Vector2 seekDirection = (target.position - transform.position).normalized * speed;
         Vector2 steerDirection = seekDirection - rb.velocity;
         rb.AddForce(steerDirection);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        ParticleSystem ps = Instantiate(explodePrefab, transform.position, Quaternion.identity);
-        ps.Play();
-        Destroy(gameObject);
     }
 }

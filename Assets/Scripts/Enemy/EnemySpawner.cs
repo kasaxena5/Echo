@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
 
             BatEnemy bat = Instantiate(batPrefab, batSpawner.position + new Vector3(Random.Range(-5, 5), 0, 0), Quaternion.identity);
 
-            float speed = Random.Range(minRockInitialSpeed, maxRockInitialSpeed);
+            float speed = Random.Range(minBatInitialSpeed, maxBatInitialSpeed);
             Vector2 direction = Random.insideUnitCircle;
             bat.Initialize(direction, speed, batTarget);
 

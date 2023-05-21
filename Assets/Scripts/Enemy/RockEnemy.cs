@@ -19,9 +19,4 @@ public class RockEnemy : Enemy
         rb.velocity = new Vector2(0, initialSpeed);
         this.transform.localScale = new Vector3(size, size, size);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(gameObject);
-    }
 }
