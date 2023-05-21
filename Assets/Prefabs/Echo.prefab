@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8491498173071814903}
   - component: {fileID: -63737256311905881}
   - component: {fileID: 4765892736737576814}
-  m_Layer: 0
+  - component: {fileID: -1240796445317435595}
+  m_Layer: 6
   m_Name: Echo
   m_TagString: Echo
   m_Icon: {fileID: 0}
@@ -104,6 +105,19 @@ PolygonCollider2D:
       - {x: 0.30613324, y: -0.26092494}
       - {x: 0.3644882, y: -0.01329229}
       - {x: 0.31555533, y: 0.16298704}
+--- !u!114 &-1240796445317435595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2695821864977781996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2df92c8a04da14393a5ef721d74f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
 --- !u!1 &4093902378322514519
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +129,7 @@ GameObject:
   - component: {fileID: 1271400020945595960}
   - component: {fileID: 882092132942917925}
   - component: {fileID: 2698791510694404396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}

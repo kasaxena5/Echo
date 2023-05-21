@@ -11,12 +11,13 @@ public class EchoSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if (mana.value >= manaUsed)
             {
                 mana.value -= manaUsed;
-                Instantiate(echoPrefab, transform.position, Quaternion.identity);
+                Echo echo = Instantiate(echoPrefab, transform.position, Quaternion.identity);
+                echo.Initialize(PlayerController.facingRight);
             }
         }
         

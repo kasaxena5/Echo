@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 145587276}
   - component: {fileID: 145587277}
   - component: {fileID: 145587278}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   echoBeamPrefab: {fileID: 5598819881535463830, guid: f0b8dd1f7a7c2834a83e87586dcf962e, type: 3}
   mana: {fileID: 11400000, guid: e016c2606275faa45a529d878efcfb0e, type: 2}
   manaUsed: 0.2
-  duration: 1
+  duration: 0.05
   targetLength: 1
   spawnCompleted: 0
 --- !u!114 &145587278
@@ -5941,7 +5941,7 @@ GameObject:
   - component: {fileID: 856280168}
   - component: {fileID: 856280170}
   - component: {fileID: 856280169}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

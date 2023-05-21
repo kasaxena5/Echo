@@ -22,9 +22,13 @@ public class PlayerController : MonoBehaviour
     public MoveState moveState = new();
     public EchoBeamState echoBeamState = new();
 
+    public static int facingRight;
+    public int jumpCount = 0;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        facingRight = 1;
     }
 
     void Start()
@@ -49,6 +53,12 @@ public class PlayerController : MonoBehaviour
     public void InflictDamage(float damage)
     {
         health.value = Mathf.Max(health.value - damage, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Echo")
+            jumpCount = 0;
     }
 }
 

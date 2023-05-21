@@ -24,6 +24,7 @@ public class EchoBeamSpawner : MonoBehaviour
         {
             mana.value -= manaUsed;
             echoBeam = Instantiate(echoBeamPrefab, transform.position, Quaternion.identity);
+            echoBeam.Initialize(PlayerController.facingRight);
             StartCoroutine(GrowEchoBeam(targetLength));
         } else
         {
