@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] ParticleSystem explodePrefab;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void DeployParticles()
     {
         ParticleSystem ps = Instantiate(explodePrefab, transform.position, Quaternion.identity);
         ps.Play();

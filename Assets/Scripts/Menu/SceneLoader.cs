@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
@@ -12,6 +13,16 @@ public class SceneLoader : MonoBehaviour
 
     [Header("Configs")]
     [SerializeField] private float loadTime = 1;
+
+    public enum SceneState
+    {
+        Loading,
+        Loaded
+    }
+    [Header("Scene States")]
+    public SceneState sceneState = SceneState.Loaded;
+    public string currentScene = "MainMenuScene";
+
 
     private GameObject loadingCanvas;
     private CanvasGroup canvasGroup;
@@ -30,24 +41,34 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadScene()
+    private void SetupLoadingCanvas()
     {
+        Instance.sceneState = SceneState.Loading;
         loadingCanvas = Instantiate(loadingCanvasPrefab);
         DontDestroyOnLoad(loadingCanvas);
         canvasGroup = loadingCanvas.GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
-
         loadingCanvas.SetActive(true);
+    }
+
+    private void TearDownLoadingCanvas()
+    {
+        loadingCanvas.SetActive(false);
+        Instance.sceneState = SceneState.Loaded;
+        Destroy(loadingCanvas);
+
+    }
+    IEnumerator LoadScene()
+    {
+        SetupLoadingCanvas();
         yield return StartCoroutine(fadeLoadingScreen(1, loadTime));
-        asyncOperation = SceneManager.LoadSceneAsync("GameScene");
+        asyncOperation = SceneManager.LoadSceneAsync(Instance.currentScene);
         while (!asyncOperation.isDone)
         {
             yield return null;
         }
         yield return StartCoroutine(fadeLoadingScreen(0, loadTime));
-        loadingCanvas.SetActive(false);
-
-        Destroy(loadingCanvas);
+        TearDownLoadingCanvas();
     }
 
     IEnumerator fadeLoadingScreen(float targetValue, float duration)

@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 1274808141498052577}
   m_Layer: 0
   m_Name: Bat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,7 +470,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7006278125230190004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodePrefab: {fileID: 1724082903374758, guid: 92c22b881301b78498f3eedd1e0c56d6, type: 3}
   speed: 5
-  damage: 0
+  damage: 0.1
 --- !u!95 &1274808141498052577
 Animator:
   serializedVersion: 5

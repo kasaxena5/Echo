@@ -19,4 +19,17 @@ public class RockEnemy : Enemy
         rb.velocity = new Vector2(0, initialSpeed);
         this.transform.localScale = new Vector3(size, size, size);
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Echo")
+        {
+            DeployParticles();
+            if (collision.gameObject.TryGetComponent(out PlayerController player))
+            {
+                player.InflictDamage(damage);
+            }
+        }
+    }
 }

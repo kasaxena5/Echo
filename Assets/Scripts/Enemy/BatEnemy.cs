@@ -30,4 +30,16 @@ public class BatEnemy : Enemy
         Vector2 steerDirection = seekDirection - rb.velocity;
         rb.AddForce(steerDirection);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Echo")
+        {
+            DeployParticles();
+            if(collision.gameObject.TryGetComponent(out PlayerController player))
+            {
+                player.InflictDamage(damage);
+            }
+        }
+    }
 }

@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [Header("Helper Classes for the state")]
     public EchoBeamSpawner echoBeamSpawner;
 
+    [Header("Prefabs and SO")]
+    [SerializeField] private FloatReference health;
+
     IState currentState;
     public JumpState jumpState = new();
     public MoveState moveState = new();
@@ -41,6 +44,11 @@ public class PlayerController : MonoBehaviour
             currentState.OnExit(this);
         currentState = newState;
         currentState.OnEnter(this);
+    }
+
+    public void InflictDamage(float damage)
+    {
+        health.value = Mathf.Max(health.value - damage, 0);
     }
 }
 

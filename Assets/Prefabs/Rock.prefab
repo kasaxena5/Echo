@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 1690459181}
   m_Layer: 0
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodePrefab: {fileID: 1724082903374758, guid: 92c22b881301b78498f3eedd1e0c56d6, type: 3}
-  damage: 0
+  damage: 0.2
 --- !u!50 &5616813259938623003
 Rigidbody2D:
   serializedVersion: 4
